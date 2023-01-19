@@ -13,15 +13,14 @@ function findBookById(books, id) {
 
 
 
-
+//for each book in books, push book object to checkedOut if returned status === false, push book object to returned if returned value === true, return in [[],[]] format
 function partitionBooksByBorrowedStatus(books) {
   const checkedOut = [];
   const returned = [];
   books.forEach((book) => borrowedStatusCheck(book) ? checkedOut.push(book) : returned.push(book));
 
   return [checkedOut, returned]
-
-}
+} 
 
 
 

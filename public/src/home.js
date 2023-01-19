@@ -1,14 +1,14 @@
 function getTotalBooksCount(books) {
   return books.length;
-}
+}//array.length to count number of book objects in books array
 
 function getTotalAccountsCount(accounts) {
   return accounts.length;
-}
+}//array.length to count number of account objects in account array
 
 function getBooksBorrowedCount(books) {
   return books.filter((book) => borrowedStatusCheck(book)).length;
-}
+}//filter for books where borrowed status === false; obtain length
 
 
 
@@ -27,7 +27,7 @@ function getMostCommonGenres(books) {
 }
 
 
-
+//for each book create an array of objects containing the 'name':title and 'count':number of borrows; sort by most then slice first 5
 function getMostPopularBooks(books) {
   const booksCount = [];
   for (const book in books) {
