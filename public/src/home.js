@@ -13,17 +13,17 @@ function getBooksBorrowedCount(books) {
 
 
 function getMostCommonGenres(books) {
-  const genresCount = {};
+  const genresCount = [];
   //Create keys of genres and track counter in their associated key-pair
   for (const book in books) { 
     let bookGenre=books[book].genre;
-    Object.keys(genresCount).includes(bookGenre) ? genresCount[bookGenre]++ : genresCount[bookGenre] = 1 };
+      
+    genresCount.some((check)=>check.name===bookGenre) ? genresCount.find(obj=>obj.name===bookGenre).count++ : genresCount.push({"name": bookGenre, "count": 1 });
+    };
   //convert key/keypair into array,sort,slice
-  let output = Object.entries(genresCount).sort((most, less) => less[1] - most[1]).slice(0, 5)
-  const genreOutput = []
-  //proper formatting below into object notation
-  output.forEach((genre) => genreOutput.push({ 'name': genre[0], 'count': genre[1] }))
-  return genreOutput
+  let output = genresCount.sort((most, less) => less.count - most.count).slice(0, 5)
+
+  return output
 }
 
 
